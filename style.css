@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Reset / base
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #a09e9e;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Background classes
+   ========================================================================== */
+
+/* Fills background, preserves aspect ratio */
+.bg-cover-fill {
+  background-image: var(--bg-image, url('assets/background.jpg'));
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+
+/* Tile background image at native size */
+.bg-tiled {
+  background-image: var(--bg-image, url('assets/background-tile.jpg'));
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+/* Two-tone gradient */
+.bg-gradient {
+  background-image: linear-gradient(
+    160deg,
+    var(--bg-color-start, #2b1055) 0%,
+    var(--bg-color-end, #7597de) 100%
+  );
+}
+
+/* Flat single-color */
+.bg-solid {
+  background-color: var(--bg-color, #111111);
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 20px 64px;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.site-title {
+  margin: 0;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 100;
+  font-size: 4rem;
+  color: #ffffff;
+}
+
+.site-title span {
+  display: inline-block;
+}
+
+.site-subtitle {
+  margin: 8px 0 0;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15rem; /* half of the H1 size */
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  max-height: 128px;
+  padding: 15px 24px 15px 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  isolation: isolate;
+}
+
+/* Blurred, enlarged OG image used as the pill's background */
+.link-pill::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background-image: var(--og-image);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Fallback tint */
+.link-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+.link-icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: var(--og-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.link-label {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 90;
+}
